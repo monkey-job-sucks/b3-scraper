@@ -7,10 +7,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BrowserDriverFactory {
 
+    private int timeoutSeconds = 10;
+
     public BrowserDriver createBrowserDriver() {
         WebDriverManager.firefoxdriver().setup();
         WebDriver driver = new FirefoxDriver();
-        WebDriverWait driverWait = new WebDriverWait(driver, 10);
+        WebDriverWait driverWait = new WebDriverWait(driver, timeoutSeconds);
         return BrowserDriver.builder().driver(driver).driverWait(driverWait).build();
     }
 
